@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--        //5.映射文件：-->
+<!--        5.在resources下创建mapper目录，目录下创建UserMapper.xml.参考代码如下。-->
+<mapper namespace="com.seehope.mapper.CommentMapper">
+
+    <insert id="addComment" parameterType="comment">
+        insert into comment(comments,proid,score,userid) values (#{comments},#{proid},#{score},#{userid})
+    </insert>
+
+
+    <select id="searchComments" resultType="comment">
+        select c.*,u.username from comment c left join user u on c.userid=u.id where proid=#{proid}
+    </select>
+
+
+</mapper>

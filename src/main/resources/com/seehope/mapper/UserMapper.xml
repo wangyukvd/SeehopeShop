@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--        //5.映射文件：-->
+<!--        5.在resources下创建mapper目录，目录下创建UserMapper.xml.参考代码如下。-->
+<mapper namespace="com.seehope.mapper.UserMapper">
+    <insert id="register" parameterType="User">
+        insert into user(username,password,telephone) values (#{username},#{password},#{telephone})
+    </insert>
+
+    <select id="findUserByName" resultType="User">
+        select * from user where username=#{username}
+    </select>
+
+    <select id="findUserByUserNameAndPassword" resultType="User">
+        select * from user where username=#{param1} and password=#{param2}
+    </select>
+
+
+</mapper>
